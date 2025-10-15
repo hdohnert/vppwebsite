@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energywell Home - Home Battery Backup for $499</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 50;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1f2937;
+            text-decoration: none;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            color: #059669;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #059669;
+        }
+
+        .nav-cta {
+            background: #059669;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: #047857;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            color: #4b5563;
+            text-decoration: none;
+        }
+
+        .mobile-menu .nav-cta {
+            display: block;
+            text-align: center;
+            margin-top: 0.75rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 1.5rem 5rem;
+            background: linear-gradient(to bottom right, #d1fae5, white);
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .highlight {
+            color: #059669;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #059669;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #047857;
+        }
+
+        .btn-secondary {
+            border: 2px solid #059669;
+            color: #059669;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #d1fae5;
+        }
+
+        .hero-image {
+            background: linear-gradient(to bottom right, #a7f3d0, #d1fae5);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image svg {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            color: #059669;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 1.5rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: #4b5563;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        /* Value Cards */
+        .value-card {
+            background: #f9fafb;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .value-icon {
+            background: white;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon svg {
+            width: 32px;
+            height: 32px;
+            color: #059669;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            color: #4b5563;
+        }
+
+        /* How It Works */
+        .bg-emerald {
+            background: #d1fae5;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            background: #a7f3d0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #059669;
+        }
+
+        .step-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .step-card p {
+            color: #4b5563;
+        }
+
+        /* Business Model */
+        .info-box {
+            background: linear-gradient(to bottom right, #d1fae5, white);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            border: 1px solid #a7f3d0;
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .info-box svg {
+            width: 48px;
+            height: 48px;
+            color: #059669;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box p {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Pricing */
+        .bg-gray {
+            background: #f9fafb;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 60rem;
+            margin: 0 auto;
+        }
+
+        .pricing-header {
+            background: #059669;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pricing-header h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-header p {
+            color: #a7f3d0;
+        }
+
+        .pricing-body {
+            padding: 3rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-row span:first-child {
+            font-size: 1.125rem;
+            color: #4b5563;
+        }
+
+        .price-row span:last-child {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .included-box {
+            background: #d1fae5;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .included-box h4 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .included-list {
+            list-style: none;
+        }
+
+        .included-list li {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .included-list svg {
+            width: 24px;
+            height: 24px;
+            color: #059669;
+            flex-shrink: 0;
+        }
+
+        .disclaimer {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f9fafb;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #4b5563;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .chevron {
+            transition: transform 0.3s;
+        }
+
+        .chevron.rotate {
+            transform: rotate(180deg);
+        }
+
+        /* Get Started Form */
+        .bg-emerald-gradient {
+            background: linear-gradient(to bottom right, #059669, #047857);
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #059669;
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #059669;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #047857;
+        }
+
+        .form-disclaimer {
+            font-size: 0.875rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            padding: 3rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo svg {
+            width: 32px;
+            height: 32px;
+            color: #10b981;
+        }
+
+        .footer-logo span {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .footer-section h4 {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #10b981;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .pricing-body, .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                </svg>
+                <span>Energywell Home</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#get-started" class="nav-cta">Get Started</a>
+            </div>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="#get-started" class="nav-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div>
+                <h1>Home backup power for <span class="highlight">$499</span></h1>
+                <p>What would cost you $15,000+ is now just $499. Keep your home running during outages with a professional 24 kWh battery system.</p>
+                <div class="hero-buttons">
+                    <a href="#get-started" class="btn-primary">
+                        Get Started
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Why pay more for the same protection?</h2>
+                <p>Traditional battery systems cost $15,000-$25,000. Our smart business model lets us offer the same backup power for a fraction of the cost.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3>$499</h3>
+                    <p>Installation fee vs. $15,000+ for traditional systems</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <h3>24 kWh</h3>
+                    <p>Professional-grade battery capacity for whole-home backup</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3>15 Years</h3>
+                    <p>Full service agreement with maintenance included</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="bg-emerald">
+        <div class="container">
+            <div class="section-header">
+                <h2>How it works</h2>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Site Survey</h3>
+                    <p>Share photos of your home and electrical panel. Our engineers determine the best battery configuration for your needs.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Professional Installation</h3>
+                    <p>We handle permits, utility approvals, and installation. Our licensed electricians complete everything in about a day.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Enjoy Backup Power</h3>
+                    <p>Your battery automatically kicks in during outages. Monitor your system and get support from our team anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section>
+        <div class="container">
+            <div class="info-box">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <h2>How we keep costs low</h2>
+                <p>Your battery does more than just provide backup power. When the grid is running normally, we use your battery to help balance the energy grid—charging when electricity is abundant and discharging when demand is high.</p>
+                <p>This smart grid optimization generates value that helps us offer affordable backup power to homeowners. You get reliable protection at a fraction of traditional costs, and the grid becomes more stable and efficient.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="bg-gray">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, transparent pricing</h2>
+                <p>No hidden fees. No surprises.</p>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Complete Home Battery System</h3>
+                    <p>Everything you need for reliable backup power</p>
+                </div>
+
+                <div class="pricing-body">
+                    <div class="price-row">
+                        <span>Initial Deposit (refundable)</span>
+                        <span>$250</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Installation Fee</span>
+                        <span>$499</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Monthly Membership</span>
+                        <span>$19.99</span>
+                    </div>
+
+                    <div class="included-box">
+                        <h4>What's included:</h4>
+                        <ul class="included-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>24 kWh professional battery system</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Complete installation by licensed electricians</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>All permits and utility approvals</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>15-year service agreement</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Maintenance and warranty support included</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Mobile app for monitoring and control</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="disclaimer">*Installation fee may vary based on site survey results. Deposit is refundable until permits are submitted. Requires bundled electricity service agreement.</p>
+
+                    <a href="#get-started" class="btn-primary" style="width: 100%; justify-content: center;">
+                        Get Your Free Site Survey
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container" style="max-width: 56rem;">
+            <div class="section-header">
+                <h2>Frequently asked questions</h2>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(0)">
+                    <span>How much does it cost?</span>
+                    <svg class="chevron" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Installation is just $499 (may vary based on site survey) with a $250 refundable deposit. Monthly membership is $19.99/month. No hidden fees.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(1)">
+                    <span>How does the battery work during an outage?</span>
+                    <svg class="chevron" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Your 24 kWh battery system automatically kicks in when the grid goes down, keeping your home powered. We maintain at least 20% state of charge for backup purposes whenever possible.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(2)">
+                    <span>Do I own the battery?</span>
+                    <svg class="chevron" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The battery remains property of Energywell Home during the 15-year service agreement. We handle all maintenance and warranty support at no additional cost.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(3)">
+                    <span>What's included in installation?</span>
+                    <svg class="chevron" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>We handle everything: site survey, permits, utility approvals, professional installation by licensed electricians, and system commissioning. You don't lift a finger.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(4)">
+                    <span>How long does installation take?</span>
+                    <svg class="chevron" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>From signup to installation typically takes 4-8 weeks depending on permitting. The actual installation is usually completed in one day.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(5)">
+                    <span>Can I use this with solar panels?</span>
+                    <svg class="chevron" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! The battery system works great with existing solar installations or can be added before solar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Form -->
+    <section id="get-started" class="bg-emerald-gradient">
+        <div class="container">
+            <div class="section-header" style="color: white;">
+                <h2 style="color: white;">Ready to get started?</h2>
+                <p style="color: #a7f3d0;">Join thousands of homeowners protecting their homes with affordable backup power</p>
+            </div>
+
+            <div class="form-container">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>Home Address</label>
+                        <input type="text" id="address" placeholder="123 Main St, City, State ZIP" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phone" placeholder="(555) 123-4567" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Schedule Free Site Survey
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </button>
+
+                    <p class="form-disclaimer">By submitting, you agree to our terms of service. Your $250 deposit is fully refundable until permits are submitted.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                        <span>Energywell Home</span>
+                    </div>
+                    <p style="color: #9ca3af;">Affordable home backup power for everyone.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://energywell.com" target="_blank" rel="noopener noreferrer">About Energywell</a></li>
+                        <li><a href="#get-started">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Energywell Home, LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // FAQ toggle
+        function toggleFaq(index) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const answer = faqItems[index].querySelector('.faq-answer');
+            const chevron = faqItems[index].querySelector('.chevron');
+            
+            // Close all other FAQs
+            faqItems.forEach((item, i) => {
+                if (i !== index) {
+                    item.querySelector('.faq-answer').classList.remove('active');
+                    item.querySelector('.chevron').classList.remove('rotate');
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            chevron.classList.toggle('rotate');
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const address = document.getElementById('address').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            if (address && email && phone) {
+                alert('Thank you for your interest! Our team will contact you within 24 hours to schedule your site survey.');
+                document.getElementById('contactForm').reset();
+            }
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
